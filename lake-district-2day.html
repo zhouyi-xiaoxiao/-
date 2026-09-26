@@ -139,6 +139,7 @@
   .m-lakelbl { fill: var(--lake); font-size: 19px; font-style: italic; }
   .m-route { fill: none; stroke: var(--lake); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
   .m-back { stroke-dasharray: 2 8; }
+  .m-drive1 { fill: none; stroke: var(--fell); stroke-width: 3; stroke-dasharray: 8 6; stroke-linecap: round; stroke-linejoin: round; }
   .m-walk { fill: none; stroke: var(--fell); stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
   .m-dash { stroke-dasharray: 9 8; stroke-width: 4; }
   .m-bus { fill: none; stroke: var(--muted); stroke-width: 3; stroke-dasharray: 1 7; stroke-linecap: round; }
@@ -173,59 +174,68 @@
   <header>
     <span class="eyebrow">Lake District · Cumbria</span>
     <h1>湖区两日游</h1>
-    <p class="muted">住 Ambleside。第一天慢节奏徒步 Rydal → Grasmere，第二天自驾西湖区一路回 Bristol。每个地点都能一键打开 Google 地图。</p>
+    <p class="muted">住 Glenridding（Ullswater 湖南端）。9/27 周日翻 Kirkstone Pass 去 Ambleside，慢节奏徒步 Rydal → Grasmere；9/28 周一退房，自驾西湖区一路回 Bristol。每个地点都能一键打开 Google 地图。</p>
     <div class="facts">
-      <span class="fact">住：Ambleside</span>
+      <span class="fact">住：Glenridding · 9/26–28</span>
+      <span class="fact">周一 11:00 前退房</span>
       <span class="fact">Day 1 徒步约 <span class="mono">7 km</span></span>
       <span class="fact">Day 2 驾车约 <span class="mono">8.5 h</span>（含回程）</span>
     </div>
     <figure class="mapbox" style="margin:0">
-<svg class="map" viewBox="0 0 640 406" role="img" aria-label="湖区两日路线示意图">
-<rect width="640" height="406" class="m-land"/>
-<polygon points="137.1,-85.2 91.4,-10.5 76.2,45.9 64.8,112.7 45.7,163.8 38.1,190.0 99.0,242.4 144.8,308.0 190.5,360.4 205.7,406.2 0,406 0,0" class="m-sea"/>
-<text x="22" y="266" class="m-sealbl">Irish Sea</text>
-<polyline points="550.1,271.3 566.1,308.0 574.5,353.8 560.0,412.8" class="m-lake" stroke-width="9"/>
-<polyline points="468.6,91.7 478.5,150.7" class="m-lake" stroke-width="6"/>
-<polyline points="409.1,51.1 398.5,100.9" class="m-lake" stroke-width="12"/>
-<polyline points="350.5,-32.8 369.5,6.6" class="m-lake" stroke-width="9"/>
-<polyline points="302.5,121.9 329.9,148.1" class="m-lake" stroke-width="7"/>
-<polyline points="272.8,78.6 295.6,127.1" class="m-lake" stroke-width="8"/>
-<polyline points="242.3,62.9 256.8,74.7" class="m-lake" stroke-width="5"/>
-<polyline points="240.0,137.6 201.9,155.9" class="m-lake" stroke-width="7"/>
-<polyline points="318.5,235.9 278.1,279.1" class="m-lake" stroke-width="7"/>
-<polyline points="464.8,321.1 445.7,406.2" class="m-lake" stroke-width="7"/>
-<polyline points="563.8,117.9 617.1,78.6 640.0,45.9" class="m-lake" stroke-width="8"/>
-<polyline points="499.8,239.8 505.9,247.7" class="m-lake" stroke-width="6"/>
-<polyline points="515.0,245.1 525.7,247.7" class="m-lake" stroke-width="4"/>
-<rect x="487.4" y="222.7" width="69.0" height="56.5" rx="6" class="m-d1box"/>
-<text x="485.4" y="301.2" class="m-d1lbl">Day 1 徒步</text>
-<polyline points="547.0,271.3 529.5,246.4 502.9,229.3 495.2,190.0 482.3,137.6 464.8,85.2 416.0,44.6 413.0,78.6 403.8,111.4 400.0,144.1 388.6,157.3 367.2,162.5 339.0,150.7 307.0,123.2 289.5,98.3 251.4,68.1 190.5,78.6 129.5,150.7 114.3,200.5 144.8,255.5 190.5,281.7 251.4,275.2 281.9,268.6 323.8,229.3" class="m-route"/>
-<polyline points="190.5,281.7 198.1,334.2 221.0,386.6" class="m-route m-home"/>
-<text x="231.0" y="382.6" class="m-lbl m-dim">回 Bristol ↓</text>
-<circle cx="547.0" cy="271.3" r="6" class="m-home"/>
-<text x="559.0" y="297.3" text-anchor="start" class="m-lbl m-strong">Ambleside · 住</text>
-<circle cx="416.0" cy="44.6" r="6" class="m-stop"/>
-<text x="404.0" y="34.6" text-anchor="end" class="m-lbl m-strong">Keswick</text>
-<circle cx="443.4" cy="41.9" r="4" class="m-poi"/>
-<text x="451.4" y="63.9" text-anchor="start" class="m-lbl m-dim">Castlerigg</text>
-<circle cx="367.2" cy="162.5" r="4" class="m-poi"/>
-<text x="373.2" y="186.5" text-anchor="start" class="m-lbl m-dim">Honister Pass</text>
-<circle cx="307.0" cy="123.2" r="6" class="m-stop"/>
-<text x="295.0" y="113.2" text-anchor="end" class="m-lbl m-strong">Buttermere</text>
-<circle cx="318.5" cy="235.9" r="6" class="m-stop"/>
-<text x="330.5" y="227.9" text-anchor="start" class="m-lbl m-strong">Wast Water</text>
-<circle cx="114.3" cy="200.5" r="3" class="m-town"/>
-<text x="124.3" y="207.5" text-anchor="start" class="m-lbl m-dim">Egremont</text>
-<circle cx="190.5" cy="281.7" r="3" class="m-town"/>
-<text x="180.5" y="273.7" text-anchor="end" class="m-lbl m-dim">Gosforth</text>
-<circle cx="575.2" cy="353.8" r="3" class="m-town"/>
-<text x="585.2" y="347.8" text-anchor="start" class="m-lbl m-dim">Bowness</text>
-<text x="626" y="394" text-anchor="end" class="m-lbl m-dim">示意图 · 非比例</text>
+<svg class="map" viewBox="0 0 640 410" role="img" aria-label="湖区两日路线示意图">
+<rect width="640" height="410" class="m-land"/>
+<polygon points="128.0,-73.4 85.3,20.8 71.1,73.4 60.4,135.8 42.7,183.5 35.6,207.9 92.4,256.8 135.1,318.0 177.8,366.9 192.0,409.7 0,410 0,0" class="m-sea"/>
+<text x="22" y="270" class="m-sealbl">Irish Sea</text>
+<polyline points="513.4,283.8 528.4,318.0 536.2,360.8 522.7,415.8" class="m-lake" stroke-width="9"/>
+<polyline points="437.3,116.2 446.6,171.2" class="m-lake" stroke-width="6"/>
+<polyline points="381.9,78.3 371.9,124.8" class="m-lake" stroke-width="12"/>
+<polyline points="327.1,-24.5 344.9,36.7" class="m-lake" stroke-width="9"/>
+<polyline points="282.3,144.3 307.9,168.8" class="m-lake" stroke-width="7"/>
+<polyline points="254.6,104.0 275.9,149.2" class="m-lake" stroke-width="8"/>
+<polyline points="226.1,89.3 239.6,100.3" class="m-lake" stroke-width="5"/>
+<polyline points="224.0,159.0 188.4,176.1" class="m-lake" stroke-width="7"/>
+<polyline points="297.2,250.7 259.6,291.1" class="m-lake" stroke-width="7"/>
+<polyline points="433.8,330.2 416.0,409.7" class="m-lake" stroke-width="7"/>
+<polyline points="522.7,143.1 544.0,110.1 576.0,91.7 611.6,55.0" class="m-lake" stroke-width="9"/>
+<polyline points="466.5,254.4 472.2,261.7" class="m-lake" stroke-width="6"/>
+<polyline points="480.7,259.3 490.7,261.7" class="m-lake" stroke-width="4"/>
+<polyline points="535.5,181.0 537.6,187.1" class="m-lake" stroke-width="4"/>
+<rect x="454.7" y="238.2" width="64.90000000000003" height="53.19999999999999" rx="6" class="m-d1box"/>
+<text x="500.6" y="337.8" text-anchor="end" class="m-d1lbl">Day 1 徒步</text>
+<polyline points="515.6,141.9 526.2,159.0 533.3,185.9 539.7,238.5 522.7,263.0 513.4,281.3" class="m-drive1"/>
+<polyline points="539.0,360.8 547.6,318.0 544.0,281.3 539.7,238.5" class="m-drive1"/>
+<polyline points="515.6,141.9 536.9,122.3 535.5,106.4 515.6,94.2 501.3,61.2 490.7,31.8 448.0,50.1 412.4,61.2 388.3,72.2 385.4,104.0 376.9,134.5 373.3,165.1 362.7,177.3 342.8,182.2 316.4,171.2 286.6,145.5 270.2,122.3 234.7,94.2 177.8,104.0 120.9,171.2 106.7,217.7 135.1,269.1 177.8,293.5 234.7,287.4 263.1,281.3 302.2,244.6" class="m-route"/>
+<polyline points="177.8,293.5 184.9,342.5 206.2,391.4" class="m-route m-back"/>
+<text x="216.2" y="387.4" class="m-lbl m-dim">回 Bristol ↓</text>
+<text x="500.6" y="311.8" text-anchor="end" class="m-lbl m-dim">Ambleside</text>
+<circle cx="515.6" cy="141.9" r="7" class="m-home"/>
+<text x="503.6" y="129.9" text-anchor="end" class="m-lbl m-strong">Glenridding · 住</text>
+<circle cx="539.7" cy="238.5" r="4" class="m-poi"/>
+<text x="551.7" y="244.5" text-anchor="start" class="m-lbl m-dim">Kirkstone Pass</text>
+<circle cx="535.5" cy="106.4" r="4" class="m-poi"/>
+<text x="545.5" y="112.4" text-anchor="start" class="m-lbl m-dim">Aira Force</text>
+<circle cx="388.3" cy="72.2" r="6" class="m-stop"/>
+<text x="376.3" y="62.2" text-anchor="end" class="m-lbl m-strong">Keswick</text>
+<circle cx="413.9" cy="69.7" r="4" class="m-poi"/>
+<text x="419.9" y="93.7" text-anchor="start" class="m-lbl m-dim">Castlerigg</text>
+<circle cx="342.8" cy="182.2" r="4" class="m-poi"/>
+<text x="348.8" y="206.2" text-anchor="start" class="m-lbl m-dim">Honister Pass</text>
+<circle cx="286.6" cy="145.5" r="6" class="m-stop"/>
+<text x="274.6" y="135.5" text-anchor="end" class="m-lbl m-strong">Buttermere</text>
+<circle cx="297.2" cy="250.7" r="6" class="m-stop"/>
+<text x="309.2" y="242.7" text-anchor="start" class="m-lbl m-strong">Wast Water</text>
+<circle cx="106.7" cy="217.7" r="3" class="m-town"/>
+<text x="116.7" y="224.7" text-anchor="start" class="m-lbl m-dim">Egremont</text>
+<circle cx="177.8" cy="293.5" r="3" class="m-town"/>
+<text x="167.8" y="285.5" text-anchor="end" class="m-lbl m-dim">Gosforth</text>
+<circle cx="539.0" cy="360.8" r="3" class="m-town"/>
+<text x="529.0" y="366.8" text-anchor="end" class="m-lbl m-dim">Bowness</text>
+<text x="14" y="398" class="m-lbl m-dim">示意图 · 非比例</text>
 </svg>
       <figcaption class="map-cap">
         <span class="key d2"><i></i>Day 2 自驾</span>
-        <span class="key d1"><i></i>Day 1 徒步区域</span>
-        <a class="btn d2" href="https://www.google.com/maps/dir/?api=1&origin=Ambleside&destination=Bristol&waypoints=Keswick%7CButtermere%7CWast+Water&travelmode=driving" target="_blank" rel="noopener"><svg><use href="#nav"/></svg>在 Google 地图打开</a>
+        <span class="key d1"><i></i>Day 1 开车 + 徒步</span>
+        <a class="btn d2" href="https://www.google.com/maps/dir/?api=1&origin=Glenridding&destination=Bristol&waypoints=Keswick%7CButtermere%7CWast+Water&travelmode=driving" target="_blank" rel="noopener"><svg><use href="#nav"/></svg>在 Google 地图打开</a>
       </figcaption>
     </figure>
   </header>
@@ -239,7 +249,7 @@
   <!-- ============ DAY 1 ============ -->
   <section class="day d1" id="day1">
     <div class="day-head">
-      <span class="day-tag">DAY 1 · 徒步 + 小镇</span>
+      <span class="day-tag">DAY 1 · 9/27 周日 · 徒步 + 小镇</span>
       <h2>Rydal Cave 到 Grasmere 姜饼屋</h2>
     </div>
 
@@ -255,8 +265,8 @@
 <text x="492.0" y="254.8" class="m-lbl m-dim">555 巴士回程</text>
 <polyline points="565.3,366.9 512.0,360.8 465.8,275.2 416.0,195.7" class="m-walk m-dash"/>
 <polyline points="416.0,195.7 348.4,207.9 273.8,236.1 213.3,240.9 156.4,228.7 112.4,223.8 81.8,152.9 99.6,89.3 124.4,55.0" class="m-walk"/>
-<circle cx="565.3" cy="366.9" r="6" class="m-home m-d1"/>
-<text x="555.3" y="352.9" text-anchor="end" class="m-lbl m-strong">Ambleside · 住</text>
+<circle cx="565.3" cy="366.9" r="6" class="m-stop m-d1"/>
+<text x="555.3" y="352.9" text-anchor="end" class="m-lbl m-strong">Ambleside · 停车</text>
 <circle cx="416.0" cy="195.7" r="4" class="m-poi m-d1"/>
 <text x="428.0" y="203.7" text-anchor="start" class="m-lbl m-dim">Pelter Bridge</text>
 <circle cx="273.8" cy="236.1" r="6" class="m-stop m-d1"/>
@@ -270,14 +280,27 @@
     </figure>
 
     <div class="route-card">
-      <p class="route-line"><b>Ambleside</b> → Pelter Bridge (Rydal) → <b>Rydal Cave</b> → Loughrigg Terrace → Grasmere 湖边 → <b>Grasmere 姜饼屋</b> → 555 巴士回 Ambleside</p>
-      <p class="muted" style="font-size:13px">单程徒步，不用开车：车停在住处，回程坐公交，免得还要走回去取车。</p>
+      <p class="route-line"><b>Glenridding</b> 开车翻 Kirkstone Pass → <b>Ambleside</b> 停车 → Pelter Bridge (Rydal) → <b>Rydal Cave</b> → Loughrigg Terrace → Grasmere 湖边 → <b>Grasmere 姜饼屋</b> → 555 巴士回 Ambleside 取车 → 开车回 Glenridding</p>
+      <p class="muted" style="font-size:13px">车停在 Ambleside，走单程，回程坐 555 巴士回来取车，不用原路走回去。</p>
       <div class="btns">
         <a class="btn primary" href="https://www.google.com/maps/dir/?api=1&origin=Pelter+Bridge+Car+Park,+Rydal&destination=Grasmere+Gingerbread+Shop&waypoints=Rydal+Cave%7CLoughrigg+Terrace&travelmode=walking" target="_blank" rel="noopener"><svg><use href="#nav"/></svg>徒步全程导航</a>
       </div>
     </div>
 
     <ol class="timeline">
+      <li>
+        <span class="t mono">11:30</span>
+        <div class="stop move">
+          <h3>Glenridding → Kirkstone Pass → Ambleside（约 25 分钟）<span class="pill warn">陡坡</span></h3>
+          <p class="muted">A592 沿 Brothers Water 上山，过 Kirkstone Pass（湖区最高的公路山口）后走 "The Struggle" 下到 Ambleside，下坡很陡，挂低速档。车停镇上的收费停车场，停 5–6 小时。</p>
+          <p class="muted">NT 会员另一个选择：停 <b>White Moss</b>（NT，会员免费），在 Rydal Water 和 Grasmere 之间，离徒步起点更近；周末下午常满。</p>
+          <div class="btns">
+            <a class="btn" href="https://www.google.com/maps/dir/?api=1&origin=Glenridding&destination=Ambleside&waypoints=Kirkstone+Pass+Inn&travelmode=driving" target="_blank" rel="noopener"><svg><use href="#nav"/></svg>开车去 Ambleside</a>
+            <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Rydal+Road+car+park+Ambleside" target="_blank" rel="noopener"><svg><use href="#pin"/></svg>Rydal Road 停车场</a>
+            <a class="btn" href="https://www.google.com/maps/search/?api=1&query=White+Moss+car+park+National+Trust" target="_blank" rel="noopener"><svg><use href="#pin"/></svg>White Moss (NT)</a>
+          </div>
+        </div>
+      </li>
       <li>
         <span class="t mono">12:00</span>
         <div class="stop">
@@ -377,21 +400,36 @@
           </div>
         </div>
       </li>
+      <li>
+        <span class="t mono">晚上</span>
+        <div class="stop move">
+          <h3>开车回 Glenridding</h3>
+          <ul>
+            <li>从 Ambleside：原路翻 Kirkstone Pass，约 25 分钟</li>
+            <li>从 Bowness：A592 经 Troutbeck 上 Kirkstone，约 35 分钟，坡比 Ambleside 那边缓</li>
+            <li>山口没有路灯、常起雾。天黑不想走山路就绕 A591 → Keswick → A66 → A5091，约 50 分钟</li>
+          </ul>
+          <div class="btns">
+            <a class="btn" href="https://www.google.com/maps/dir/?api=1&origin=Ambleside&destination=Glenridding&waypoints=Kirkstone+Pass+Inn&travelmode=driving" target="_blank" rel="noopener"><svg><use href="#nav"/></svg>Ambleside 出发</a>
+            <a class="btn" href="https://www.google.com/maps/dir/?api=1&origin=Bowness-on-Windermere&destination=Glenridding&waypoints=Troutbeck,+Windermere%7CKirkstone+Pass+Inn&travelmode=driving" target="_blank" rel="noopener"><svg><use href="#nav"/></svg>Bowness 出发</a>
+          </div>
+        </div>
+      </li>
     </ol>
   </section>
 
   <!-- ============ DAY 2 ============ -->
   <section class="day d2" id="day2">
     <div class="day-head">
-      <span class="day-tag">DAY 2 · 自驾 + 回 Bristol</span>
+      <span class="day-tag">DAY 2 · 9/28 周一 · 自驾 + 回 Bristol</span>
       <h2>Keswick、Buttermere、Wast Water</h2>
     </div>
 
     <div class="route-card">
-      <p class="route-line"><b>Ambleside</b> → <b>Keswick</b> → Honister Pass → <b>Buttermere</b> → <b>Wast Water</b> → M6 / M5 → <b>Bristol</b></p>
-      <p class="muted" style="font-size:13px">湖区内约 3.5 小时车程，回 Bristol 再 5 小时左右。行李一早装车，干粮备好，8:30 出发比较从容。</p>
+      <p class="route-line"><b>Glenridding</b> → (Aira Force) → Castlerigg → <b>Keswick</b> → Honister Pass → <b>Buttermere</b> → <b>Wast Water</b> → M6 / M5 → <b>Bristol</b></p>
+      <p class="muted" style="font-size:13px">湖区内约 3.5 小时车程，回 Bristol 再 5 小时左右。11:00 前退房，行李一早装车，干粮备好，8:30 出发比较从容。</p>
       <div class="btns">
-        <a class="btn primary" href="https://www.google.com/maps/dir/?api=1&origin=Ambleside&destination=Bristol&waypoints=Keswick%7CButtermere%7CWast+Water&travelmode=driving" target="_blank" rel="noopener"><svg><use href="#nav"/></svg>全天路线一键导航</a>
+        <a class="btn primary" href="https://www.google.com/maps/dir/?api=1&origin=Glenridding&destination=Bristol&waypoints=Keswick%7CButtermere%7CWast+Water&travelmode=driving" target="_blank" rel="noopener"><svg><use href="#nav"/></svg>全天路线一键导航</a>
       </div>
     </div>
 
@@ -401,18 +439,28 @@
       <li>
         <span class="t mono">08:30</span>
         <div class="stop move">
-          <h3>退房出发，A591 往北（约 35 分钟）</h3>
-          <p class="muted">路过 Grasmere 和 Thirlmere 湖。西湖区加油站很少，<b>在 Keswick 把油加满</b>。</p>
+          <h3>退房出发，沿 Ullswater 往北，经 A5091、A66 到 Keswick（约 35 分钟）</h3>
+          <p class="muted">西湖区加油站很少，<b>在 Keswick 把油加满</b>。</p>
           <div class="btns">
-            <a class="btn" href="https://www.google.com/maps/dir/?api=1&origin=Ambleside&destination=Castlerigg+Stone+Circle&travelmode=driving" target="_blank" rel="noopener"><svg><use href="#nav"/></svg>去 Castlerigg</a>
+            <a class="btn" href="https://www.google.com/maps/dir/?api=1&origin=Glenridding&destination=Castlerigg+Stone+Circle&travelmode=driving" target="_blank" rel="noopener"><svg><use href="#nav"/></svg>去 Castlerigg</a>
             <a class="btn" href="https://www.google.com/maps/search/?api=1&query=petrol+station+Keswick" target="_blank" rel="noopener"><svg><use href="#pin"/></svg>Keswick 加油站</a>
           </div>
         </div>
       </li>
       <li>
-        <span class="t mono">09:10</span>
+        <span class="t mono">08:40</span>
+        <div class="stop opt">
+          <h3>Aira Force 瀑布 <span class="pill opt">可选</span></h3>
+          <p>就在出发路上，离 Glenridding 约 10 分钟车程。NT 停车场会员免费，走到瀑布来回 30–40 分钟。想去的话 <b>8:00 出发</b>，后面时间不变。</p>
+          <div class="btns">
+            <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Aira+Force+car+park" target="_blank" rel="noopener"><svg><use href="#pin"/></svg>Aira Force</a>
+          </div>
+        </div>
+      </li>
+      <li>
+        <span class="t mono">09:05</span>
         <div class="stop">
-          <h3>Keswick</h3>
+          <h3>Castlerigg + Keswick</h3>
           <ul>
             <li><b>Castlerigg Stone Circle</b>：约 4500 年前的环状列石，四面环山，免费，路边停车，20 分钟就够</li>
             <li><b>Friar's Crag</b>：从镇上湖边码头走 10 分钟，看 Derwentwater 最经典的角度</li>
@@ -491,8 +539,9 @@
   <section class="tips" id="tips">
     <h2>注意事项</h2>
     <div class="tip-grid">
-      <div class="tip"><b>提前下载离线地图</b><span>Wasdale 和 Honister 一带手机基本没信号。在 Google 地图里把湖区整片下载成离线区域。</span></div>
-      <div class="tip"><b>停车</b><span>湖区停车场多数按小时收费，National Trust 的停车场会员免费。准备好停车 App（RingGo / PayByPhone）或零钱。</span></div>
+      <div class="tip"><b>提前下载离线地图</b><span>Wasdale、Honister、Kirkstone 一带手机信号很差。在 Google 地图里把湖区整片下载成离线区域。</span></div>
+      <div class="tip"><b>NT 会员停车</b><span>White Moss、Aira Force、Buttermere、Wasdale 一带都有 NT 停车场，会员免费。没带实体卡就用 National Trust App 里的电子会员卡，在缴费机上扫码出票，放挡风玻璃下。</span></div>
+      <div class="tip"><b>其他停车场</b><span>Ambleside、Keswick 的镇上停车场按小时收费，准备好 RingGo / PayByPhone 或银行卡。</span></div>
       <div class="tip"><b>天气</b><span>湖区天气一天几变，带防水外套。Day 1 如果下大雨，Rydal Cave 的石子路会湿滑，可以只走 Grasmere 湖边的平路。</span></div>
       <div class="tip"><b>时间可以砍</b><span>Day 2 时间紧就跳过 Castlerigg，或 Buttermere 只走短线。Wast Water 往返车程长，不要在那里拖太晚。</span></div>
     </div>
@@ -501,7 +550,7 @@
   <section class="tips">
     <h2>Day 2 出门清单</h2>
     <div class="check" id="checklist">
-      <label><input type="checkbox" id="c1"><span>行李全部装车，房间检查一遍</span></label>
+      <label><input type="checkbox" id="c1"><span>行李全部装车，房间检查一遍（11:00 前退房）</span></label>
       <label><input type="checkbox" id="c2"><span>干粮 + 水（西湖区商店很少）</span></label>
       <label><input type="checkbox" id="c3"><span>离线地图已下载</span></label>
       <label><input type="checkbox" id="c4"><span>Keswick 加满油</span></label>
