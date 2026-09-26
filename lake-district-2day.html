@@ -1,0 +1,419 @@
+<title>湖区两日游</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;900&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+  :root {
+    --bg: #eef1ef;
+    --paper: #fbfcfb;
+    --ink: #1c2a2e;
+    --muted: #5b6b6c;
+    --line: #d3dcd9;
+    --lake: #2d6177;
+    --lake-soft: #dce9ee;
+    --fell: #4f6b3a;
+    --fell-soft: #e3ead9;
+    --bracken: #a4532a;
+    --bracken-soft: #f4e3d8;
+    --btn-ink: #ffffff;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #111a1c;
+      --paper: #172326;
+      --ink: #e4ecea;
+      --muted: #97a8a8;
+      --line: #2b3b3e;
+      --lake: #7fb6cc;
+      --lake-soft: #1b3440;
+      --fell: #9cc07f;
+      --fell-soft: #22301b;
+      --bracken: #e39469;
+      --bracken-soft: #3a2519;
+      --btn-ink: #0e1719;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #111a1c;
+    --paper: #172326;
+    --ink: #e4ecea;
+    --muted: #97a8a8;
+    --line: #2b3b3e;
+    --lake: #7fb6cc;
+    --lake-soft: #1b3440;
+    --fell: #9cc07f;
+    --fell-soft: #22301b;
+    --bracken: #e39469;
+    --bracken-soft: #3a2519;
+    --btn-ink: #0e1719;
+    color-scheme: dark;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+    padding: 0 16px;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding-block: 28px 56px; display: flex; flex-direction: column; gap: 28px; }
+  h1, h2, h3 { font-family: "Noto Serif SC", "Songti SC", serif; text-wrap: balance; margin: 0; line-height: 1.3; }
+  h1 { font-size: 30px; font-weight: 900; }
+  h2 { font-size: 22px; font-weight: 900; }
+  h3 { font-size: 16.5px; font-weight: 600; }
+  p { margin: 0; }
+  a { color: var(--lake); }
+  .mono { font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; font-variant-numeric: tabular-nums; }
+  .muted { color: var(--muted); }
+
+  header { display: flex; flex-direction: column; gap: 10px; }
+  .eyebrow { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+  .facts { display: flex; flex-wrap: wrap; gap: 8px; }
+  .fact { font-size: 13px; padding: 3px 10px; border-radius: 999px; background: var(--paper); border: 1px solid var(--line); }
+
+  nav.tabs { display: flex; gap: 8px; position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg); padding-block: 8px; }
+  nav.tabs a { flex: 1; text-align: center; text-decoration: none; font-weight: 600; padding: 8px 0; border-radius: 10px; border: 1px solid var(--line); background: var(--paper); color: var(--ink); }
+
+  section.day { display: flex; flex-direction: column; gap: 16px; scroll-margin-top: 64px; }
+  .day-head { display: flex; flex-direction: column; gap: 6px; }
+  .day-tag { font-size: 12px; font-weight: 700; letter-spacing: .08em; color: var(--c); }
+  .d1 { --c: var(--fell); --c-soft: var(--fell-soft); }
+  .d2 { --c: var(--lake); --c-soft: var(--lake-soft); }
+
+  .route-card { background: var(--c-soft); border-radius: 14px; padding: 14px 16px; display: flex; flex-direction: column; gap: 10px; }
+  .route-line { font-size: 14px; }
+  .route-line b { color: var(--c); }
+
+  .btns { display: flex; flex-wrap: wrap; gap: 8px; }
+  .btn { display: inline-flex; align-items: center; gap: 6px; font-size: 13.5px; font-weight: 600; text-decoration: none; padding: 7px 12px; border-radius: 9px; border: 1px solid var(--c, var(--lake)); color: var(--c, var(--lake)); background: var(--paper); }
+  .btn.primary { background: var(--c, var(--lake)); color: var(--btn-ink); }
+  .btn:focus-visible, nav.tabs a:focus-visible { outline: 3px solid var(--bracken); outline-offset: 2px; }
+  .btn svg { width: 14px; height: 14px; flex: none; }
+
+  ol.timeline { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+  ol.timeline > li { display: grid; grid-template-columns: 58px 1fr; gap: 12px; position: relative; padding-bottom: 20px; }
+  ol.timeline > li::before { content: ""; position: absolute; left: 70px; top: 10px; bottom: -2px; width: 2px; background: var(--line); }
+  ol.timeline > li:last-child::before { display: none; }
+  .t { font-size: 13px; color: var(--muted); padding-top: 2px; text-align: right; }
+  .stop { display: flex; flex-direction: column; gap: 6px; padding-left: 18px; position: relative; }
+  .stop::before { content: ""; position: absolute; left: -2px; top: 7px; width: 12px; height: 12px; border-radius: 50%; background: var(--paper); border: 3px solid var(--c); box-sizing: border-box; }
+  .stop.opt::before { border-style: dashed; border-color: var(--muted); }
+  .stop.move::before { width: 8px; height: 8px; left: 0; top: 9px; border: none; background: var(--muted); }
+  .stop.move h3 { font-family: inherit; font-size: 14px; color: var(--muted); font-weight: 600; }
+  .stop p { font-size: 14px; }
+  .stop ul { margin: 0; padding-left: 18px; font-size: 14px; }
+  .pill { display: inline-block; font-size: 11.5px; font-weight: 700; padding: 1px 8px; border-radius: 999px; vertical-align: 2px; margin-left: 4px; }
+  .pill.warn { background: var(--bracken-soft); color: var(--bracken); }
+  .pill.opt { background: var(--line); color: var(--muted); }
+
+  .note { border-left: 3px solid var(--bracken); background: var(--bracken-soft); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 14px; }
+
+  section.tips { display: flex; flex-direction: column; gap: 14px; }
+  .tip-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; }
+  .tip { background: var(--paper); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; font-size: 14px; display: flex; flex-direction: column; gap: 4px; }
+  .tip b { font-size: 14.5px; }
+
+  .check { display: flex; flex-direction: column; gap: 2px; background: var(--paper); border: 1px solid var(--line); border-radius: 12px; padding: 10px 14px; }
+  .check label { display: flex; gap: 10px; align-items: center; padding: 5px 0; font-size: 14.5px; cursor: pointer; }
+  .check input { width: 18px; height: 18px; accent-color: var(--fell); flex: none; }
+  .check input:checked + span { color: var(--muted); text-decoration: line-through; }
+
+  footer { font-size: 12.5px; color: var(--muted); }
+  @media (max-width: 420px) {
+    h1 { font-size: 26px; }
+    ol.timeline > li { grid-template-columns: 46px 1fr; gap: 10px; }
+    ol.timeline > li::before { left: 56px; }
+  }
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="pin" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></symbol>
+  <symbol id="nav" viewBox="0 0 24 24"><path fill="currentColor" d="M21 3 3 10.5l7.2 2.3L12.5 20 21 3Z"/></symbol>
+</svg>
+
+<div class="wrap">
+  <header>
+    <span class="eyebrow">Lake District · Cumbria</span>
+    <h1>湖区两日游</h1>
+    <p class="muted">住 Ambleside。第一天慢节奏徒步 Rydal → Grasmere，第二天自驾西湖区一路回 Bristol。每个地点都能一键打开 Google 地图。</p>
+    <div class="facts">
+      <span class="fact">住：Ambleside</span>
+      <span class="fact">Day 1 徒步约 <span class="mono">7 km</span></span>
+      <span class="fact">Day 2 驾车约 <span class="mono">8.5 h</span>（含回程）</span>
+    </div>
+  </header>
+
+  <nav class="tabs" aria-label="跳转">
+    <a href="#day1">Day 1 徒步</a>
+    <a href="#day2">Day 2 自驾</a>
+    <a href="#tips">注意事项</a>
+  </nav>
+
+  <!-- ============ DAY 1 ============ -->
+  <section class="day d1" id="day1">
+    <div class="day-head">
+      <span class="day-tag">DAY 1 · 徒步 + 小镇</span>
+      <h2>Rydal Cave 到 Grasmere 姜饼屋</h2>
+    </div>
+
+    <div class="route-card">
+      <p class="route-line"><b>Ambleside</b> → Pelter Bridge (Rydal) → <b>Rydal Cave</b> → Loughrigg Terrace → Grasmere 湖边 → <b>Grasmere 姜饼屋</b> → 555 巴士回 Ambleside</p>
+      <p class="muted" style="font-size:13px">单程徒步，不用开车：车停在住处，回程坐公交，免得还要走回去取车。</p>
+      <div class="btns">
+        <a class="btn primary" href="https://www.google.com/maps/dir/?api=1&origin=Pelter+Bridge+Car+Park,+Rydal&destination=Grasmere+Gingerbread+Shop&waypoints=Rydal+Cave%7CLoughrigg+Terrace&travelmode=walking" target="_blank" rel="noopener"><svg><use href="#nav"/></svg>徒步全程导航</a>
+      </div>
+    </div>
+
+    <ol class="timeline">
+      <li>
+        <span class="t mono">12:00</span>
+        <div class="stop">
+          <h3>Ambleside 吃午饭</h3>
+          <p>睡到自然醒，在镇上吃点东西再出发。顺手买瓶水和零食，徒步路上没有商店。</p>
+          <div class="btns">
+            <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Apple+Pie+Cafe+Ambleside" target="_blank" rel="noopener"><svg><use href="#pin"/></svg>Apple Pie Café</a>
+            <a class="btn" href="https://www.google.com/maps/search/?api=1&query=cafe+Ambleside" target="_blank" rel="noopener"><svg><use href="#pin"/></svg>附近咖啡馆</a>
+          </div>
+        </div>
+      </li>
+      <li>
+        <span class="t mono">13:00</span>
+        <div class="stop move">
+          <h3>去 Rydal 起点（二选一）</h3>
+          <ul>
+            <li><b>走过去</b>：沿 Under Loughrigg 安静小路，约 <span class="mono">2.5 km / 35 min</span>，本身就很好走</li>
+            <li><b>坐 555 巴士</b>：Ambleside → Rydal，约 5 分钟</li>
+          </ul>
+          <div class="btns">
+            <a class="btn" href="https://www.google.com/maps/dir/?api=1&origin=Ambleside&destination=Pelter+Bridge+Car+Park,+Rydal&travelmode=walking" target="_blank" rel="noopener"><svg><use href="#nav"/></svg>步行导航</a>
+            <a class="btn" href="https://www.google.com/maps/dir/?api=1&origin=Ambleside&destination=Rydal&travelmode=transit" target="_blank" rel="noopener"><svg><use href="#nav"/></svg>公交导航</a>
+          </div>
+        </div>
+      </li>
+      <li>
+        <span class="t mono">14:00</span>
+        <div class="stop">
+          <h3>Rydal Cave</h3>
+          <p>从 Pelter Bridge 过河，沿 Loughrigg Fell 半山腰的石子路往上，约 30 分钟到。洞口有踏脚石可以走进去，里面有积水和小鱼，很出片。</p>
+          <div class="btns">
+            <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Rydal+Cave" target="_blank" rel="noopener"><svg><use href="#pin"/></svg>Rydal Cave</a>
+          </div>
+        </div>
+      </li>
+      <li>
+        <span class="t mono">14:45</span>
+        <div class="stop">
+          <h3>Loughrigg Terrace → Grasmere 湖边</h3>
+          <p>继续向西走 Loughrigg Terrace，全程俯瞰 Grasmere 湖，是这条线最好看的一段。下到湖边沿湖岸走进村子，平路为主。</p>
+          <div class="btns">
+            <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Loughrigg+Terrace" target="_blank" rel="noopener"><svg><use href="#pin"/></svg>Loughrigg Terrace</a>
+            <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Grasmere+lake" target="_blank" rel="noopener"><svg><use href="#pin"/></svg>Grasmere 湖</a>
+          </div>
+        </div>
+      </li>
+      <li>
+        <span class="t mono">15:45</span>
+        <div class="stop">
+          <h3>Grasmere 姜饼屋 <span class="pill warn">注意关门时间</span></h3>
+          <p>Sarah Nelson's Grasmere Gingerbread，1854 年开到现在，就在教堂门口的小石屋，经常排队。一般傍晚前就关门，最好 16:00 前到。旁边的 St Oswald's 教堂墓地里有华兹华斯的墓。</p>
+          <div class="btns">
+            <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Grasmere+Gingerbread+Shop" target="_blank" rel="noopener"><svg><use href="#pin"/></svg>姜饼屋</a>
+            <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Dove+Cottage+Grasmere" target="_blank" rel="noopener"><svg><use href="#pin"/></svg>Dove Cottage（华兹华斯故居）</a>
+          </div>
+        </div>
+      </li>
+      <li>
+        <span class="t mono">16:30</span>
+        <div class="stop move">
+          <h3>555 巴士回 Ambleside（约 15 分钟）</h3>
+          <p class="muted">Grasmere 村中心有站。班次大约半小时到一小时一班，上车可以刷卡。</p>
+          <div class="btns">
+            <a class="btn" href="https://www.google.com/maps/dir/?api=1&origin=Grasmere+Gingerbread+Shop&destination=Ambleside&travelmode=transit" target="_blank" rel="noopener"><svg><use href="#nav"/></svg>公交导航</a>
+          </div>
+        </div>
+      </li>
+      <li>
+        <span class="t mono">17:00</span>
+        <div class="stop">
+          <h3>Ambleside 转转</h3>
+          <ul>
+            <li><b>Bridge House</b>：建在溪上的小石屋，镇上的标志</li>
+            <li><b>Stock Ghyll Force</b>：镇后面的瀑布，来回约 30–40 分钟</li>
+            <li><b>Waterhead</b>：Windermere 湖北端的码头，适合看傍晚的湖</li>
+          </ul>
+          <div class="btns">
+            <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Bridge+House+Ambleside" target="_blank" rel="noopener"><svg><use href="#pin"/></svg>Bridge House</a>
+            <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Stock+Ghyll+Force" target="_blank" rel="noopener"><svg><use href="#pin"/></svg>Stock Ghyll Force</a>
+            <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Waterhead+Pier+Ambleside" target="_blank" rel="noopener"><svg><use href="#pin"/></svg>Waterhead 码头</a>
+          </div>
+        </div>
+      </li>
+      <li>
+        <span class="t mono">18:00</span>
+        <div class="stop opt">
+          <h3>还有精力就去 Windermere <span class="pill opt">可选</span></h3>
+          <ul>
+            <li><b>坐船</b>：Waterhead → Bowness，Windermere Lake Cruises 约 30 分钟。末班船时间随季节变，先查好</li>
+            <li><b>开车</b>：到 Bowness 约 20 分钟，湖边散步吃晚饭</li>
+            <li><b>看日落</b>：Orrest Head，从 Windermere 火车站旁上山约 20 分钟，能看到整个湖。9 月底日落大约 19:00</li>
+          </ul>
+          <div class="btns">
+            <a class="btn" href="https://www.google.com/maps/dir/?api=1&origin=Ambleside&destination=Bowness-on-Windermere&travelmode=driving" target="_blank" rel="noopener"><svg><use href="#nav"/></svg>开车去 Bowness</a>
+            <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Bowness+Pier" target="_blank" rel="noopener"><svg><use href="#pin"/></svg>Bowness 码头</a>
+            <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Orrest+Head" target="_blank" rel="noopener"><svg><use href="#pin"/></svg>Orrest Head</a>
+          </div>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ============ DAY 2 ============ -->
+  <section class="day d2" id="day2">
+    <div class="day-head">
+      <span class="day-tag">DAY 2 · 自驾 + 回 Bristol</span>
+      <h2>Keswick、Buttermere、Wast Water</h2>
+    </div>
+
+    <div class="route-card">
+      <p class="route-line"><b>Ambleside</b> → <b>Keswick</b> → Honister Pass → <b>Buttermere</b> → <b>Wast Water</b> → M6 / M5 → <b>Bristol</b></p>
+      <p class="muted" style="font-size:13px">湖区内约 3.5 小时车程，回 Bristol 再 5 小时左右。行李一早装车，干粮备好，8:30 出发比较从容。</p>
+      <div class="btns">
+        <a class="btn primary" href="https://www.google.com/maps/dir/?api=1&origin=Ambleside&destination=Bristol&waypoints=Keswick%7CButtermere%7CWast+Water&travelmode=driving" target="_blank" rel="noopener"><svg><use href="#nav"/></svg>全天路线一键导航</a>
+      </div>
+    </div>
+
+    <div class="note">回 Bristol 是全天最长的一段。<b>最晚 15:30 离开 Wast Water</b>，加上一次休息，大约 21:00 到家。</div>
+
+    <ol class="timeline">
+      <li>
+        <span class="t mono">08:30</span>
+        <div class="stop move">
+          <h3>退房出发，A591 往北（约 35 分钟）</h3>
+          <p class="muted">路过 Grasmere 和 Thirlmere 湖。西湖区加油站很少，<b>在 Keswick 把油加满</b>。</p>
+          <div class="btns">
+            <a class="btn" href="https://www.google.com/maps/dir/?api=1&origin=Ambleside&destination=Castlerigg+Stone+Circle&travelmode=driving" target="_blank" rel="noopener"><svg><use href="#nav"/></svg>去 Castlerigg</a>
+            <a class="btn" href="https://www.google.com/maps/search/?api=1&query=petrol+station+Keswick" target="_blank" rel="noopener"><svg><use href="#pin"/></svg>Keswick 加油站</a>
+          </div>
+        </div>
+      </li>
+      <li>
+        <span class="t mono">09:10</span>
+        <div class="stop">
+          <h3>Keswick</h3>
+          <ul>
+            <li><b>Castlerigg Stone Circle</b>：约 4500 年前的环状列石，四面环山，免费，路边停车，20 分钟就够</li>
+            <li><b>Friar's Crag</b>：从镇上湖边码头走 10 分钟，看 Derwentwater 最经典的角度</li>
+            <li>镇中心 Market Square 买午饭干粮，Booths 超市也在附近</li>
+          </ul>
+          <div class="btns">
+            <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Castlerigg+Stone+Circle" target="_blank" rel="noopener"><svg><use href="#pin"/></svg>Castlerigg</a>
+            <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Friar%27s+Crag+Keswick" target="_blank" rel="noopener"><svg><use href="#pin"/></svg>Friar's Crag</a>
+            <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Booths+Keswick" target="_blank" rel="noopener"><svg><use href="#pin"/></svg>Booths 超市</a>
+          </div>
+        </div>
+      </li>
+      <li>
+        <span class="t mono">10:45</span>
+        <div class="stop move">
+          <h3>经 Borrowdale、Honister Pass 到 Buttermere（约 45 分钟）<span class="pill warn">陡坡</span></h3>
+          <p class="muted">Honister Pass 是湖区最漂亮的山口之一，但最陡处约 25%，弯多路窄，低速档慢慢开。不想走山口就改走 Newlands Pass（从 Braithwaite 进）。</p>
+          <div class="btns">
+            <a class="btn" href="https://www.google.com/maps/dir/?api=1&origin=Keswick&destination=Buttermere&waypoints=Honister+Slate+Mine&travelmode=driving" target="_blank" rel="noopener"><svg><use href="#nav"/></svg>经 Honister</a>
+            <a class="btn" href="https://www.google.com/maps/dir/?api=1&origin=Keswick&destination=Buttermere&waypoints=Newlands+Hause&travelmode=driving" target="_blank" rel="noopener"><svg><use href="#nav"/></svg>经 Newlands</a>
+          </div>
+        </div>
+      </li>
+      <li>
+        <span class="t mono">11:30</span>
+        <div class="stop">
+          <h3>Buttermere 轻徒步 + 午饭</h3>
+          <ul>
+            <li><b>短线（约 1 小时）</b>：从村子走到湖边，沿西岸走到松树林和湖边的岩石隧道再折返</li>
+            <li><b>环湖（约 7 km / 2–2.5 小时）</b>：全程平路，时间够就走一圈</li>
+            <li>村里的 Syke Farm 有自制冰淇淋，Croft House Farm Café 可以吃简餐</li>
+          </ul>
+          <div class="btns">
+            <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Buttermere+village+car+park" target="_blank" rel="noopener"><svg><use href="#pin"/></svg>村口停车场</a>
+            <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Buttermere+lake" target="_blank" rel="noopener"><svg><use href="#pin"/></svg>Buttermere 湖</a>
+            <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Syke+Farm+Buttermere" target="_blank" rel="noopener"><svg><use href="#pin"/></svg>Syke Farm</a>
+          </div>
+        </div>
+      </li>
+      <li>
+        <span class="t mono">13:30</span>
+        <div class="stop move">
+          <h3>绕西海岸去 Wast Water（约 1 小时 15 分钟）</h3>
+          <p class="muted">两湖之间隔着山，没有直路，要经 Loweswater、Egremont、Gosforth 绕过去。最后一段是窄路。</p>
+          <div class="btns">
+            <a class="btn" href="https://www.google.com/maps/dir/?api=1&origin=Buttermere&destination=Wasdale+Head&travelmode=driving" target="_blank" rel="noopener"><svg><use href="#nav"/></svg>去 Wasdale</a>
+          </div>
+        </div>
+      </li>
+      <li>
+        <span class="t mono">14:45</span>
+        <div class="stop">
+          <h3>Wast Water</h3>
+          <p>英格兰最深的湖，湖东岸是陡峭的碎石坡，湖尽头 Great Gable 和 Scafell Pike 一字排开，曾被评为"英国最美风景"。沿湖路边有不少免费停车位，边开边停着拍就行。时间富余可以开到尽头的 Wasdale Head Inn 喝杯茶。</p>
+          <div class="btns">
+            <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Wast+Water" target="_blank" rel="noopener"><svg><use href="#pin"/></svg>Wast Water</a>
+            <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Wasdale+Head+Inn" target="_blank" rel="noopener"><svg><use href="#pin"/></svg>Wasdale Head Inn</a>
+          </div>
+        </div>
+      </li>
+      <li>
+        <span class="t mono">15:30</span>
+        <div class="stop move">
+          <h3>回 Bristol（约 5 小时，不含休息）</h3>
+          <p class="muted">A595 往南 → A590 → M6 J36 → M5。中途在 M6 找服务区休息一次；进入 M5 后的 Gloucester Services 是英国最好的服务区之一，适合最后歇脚。</p>
+          <div class="btns">
+            <a class="btn primary" href="https://www.google.com/maps/dir/?api=1&origin=Wast+Water&destination=Bristol&travelmode=driving" target="_blank" rel="noopener"><svg><use href="#nav"/></svg>导航回 Bristol</a>
+            <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Gloucester+Services" target="_blank" rel="noopener"><svg><use href="#pin"/></svg>Gloucester Services</a>
+          </div>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ============ TIPS ============ -->
+  <section class="tips" id="tips">
+    <h2>注意事项</h2>
+    <div class="tip-grid">
+      <div class="tip"><b>提前下载离线地图</b><span>Wasdale 和 Honister 一带手机基本没信号。在 Google 地图里把湖区整片下载成离线区域。</span></div>
+      <div class="tip"><b>停车</b><span>湖区停车场多数按小时收费，National Trust 的停车场会员免费。准备好停车 App（RingGo / PayByPhone）或零钱。</span></div>
+      <div class="tip"><b>天气</b><span>湖区天气一天几变，带防水外套。Day 1 如果下大雨，Rydal Cave 的石子路会湿滑，可以只走 Grasmere 湖边的平路。</span></div>
+      <div class="tip"><b>时间可以砍</b><span>Day 2 时间紧就跳过 Castlerigg，或 Buttermere 只走短线。Wast Water 往返车程长，不要在那里拖太晚。</span></div>
+    </div>
+  </section>
+
+  <section class="tips">
+    <h2>Day 2 出门清单</h2>
+    <div class="check" id="checklist">
+      <label><input type="checkbox" id="c1"><span>行李全部装车，房间检查一遍</span></label>
+      <label><input type="checkbox" id="c2"><span>干粮 + 水（西湖区商店很少）</span></label>
+      <label><input type="checkbox" id="c3"><span>离线地图已下载</span></label>
+      <label><input type="checkbox" id="c4"><span>Keswick 加满油</span></label>
+      <label><input type="checkbox" id="c5"><span>防水外套、徒步鞋</span></label>
+      <label><input type="checkbox" id="c6"><span>充电宝 / 车充</span></label>
+    </div>
+  </section>
+
+  <footer>时间均为建议，公交、游船和店铺营业时间随季节变化，出发前以官网为准。</footer>
+</div>
+
+<script>
+  (function () {
+    var KEY = "lake-checklist";
+    var state = {};
+    try { state = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch (e) {}
+    document.querySelectorAll("#checklist input").forEach(function (box) {
+      box.checked = !!state[box.id];
+      box.addEventListener("change", function () {
+        state[box.id] = box.checked;
+        try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {}
+      });
+    });
+  })();
+</script>
