@@ -16,6 +16,8 @@
     --bracken: #a4532a;
     --bracken-soft: #f4e3d8;
     --btn-ink: #ffffff;
+    --map-land: #e7ede3;
+    --map-water: #9cc3d3;
     color-scheme: light;
   }
   @media (prefers-color-scheme: dark) {
@@ -32,6 +34,8 @@
       --bracken: #e39469;
       --bracken-soft: #3a2519;
       --btn-ink: #0e1719;
+      --map-land: #1c2a22;
+      --map-water: #2f5a6c;
       color-scheme: dark;
     }
   }
@@ -48,6 +52,8 @@
     --bracken: #e39469;
     --bracken-soft: #3a2519;
     --btn-ink: #0e1719;
+    --map-land: #1c2a22;
+    --map-water: #2f5a6c;
     color-scheme: dark;
   }
 
@@ -121,6 +127,35 @@
   .check input { width: 18px; height: 18px; accent-color: var(--fell); flex: none; }
   .check input:checked + span { color: var(--muted); text-decoration: line-through; }
 
+
+  .mapbox { background: var(--paper); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+  .map { display: block; width: 100%; height: auto; }
+  .m-land { fill: var(--map-land); }
+  .m-sea { fill: var(--lake-soft); }
+  .m-sealbl { fill: var(--lake); font-size: 20px; font-style: italic; opacity: .7; }
+  .m-lake { fill: none; stroke: var(--map-water); stroke-linecap: round; stroke-linejoin: round; }
+  .m-lakefill { fill: var(--map-water); }
+  .m-river { fill: none; stroke: var(--map-water); stroke-width: 3; stroke-linecap: round; }
+  .m-lakelbl { fill: var(--lake); font-size: 19px; font-style: italic; }
+  .m-route { fill: none; stroke: var(--lake); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+  .m-back { stroke-dasharray: 2 8; }
+  .m-walk { fill: none; stroke: var(--fell); stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+  .m-dash { stroke-dasharray: 9 8; stroke-width: 4; }
+  .m-bus { fill: none; stroke: var(--muted); stroke-width: 3; stroke-dasharray: 1 7; stroke-linecap: round; }
+  .m-d1box { fill: var(--fell-soft); stroke: var(--fell); stroke-width: 2; }
+  .m-d1lbl { fill: var(--fell); font-size: 20px; font-weight: 700; }
+  circle.m-home { fill: var(--bracken); stroke: var(--paper); stroke-width: 2.5; }
+  circle.m-stop { fill: var(--paper); stroke: var(--lake); stroke-width: 3.5; }
+  circle.m-stop.m-d1 { stroke: var(--fell); }
+  circle.m-poi { fill: var(--paper); stroke: var(--muted); stroke-width: 2.5; }
+  circle.m-town { fill: var(--muted); }
+  .m-lbl { font-size: 22px; fill: var(--ink); paint-order: stroke; stroke: var(--map-land); stroke-width: 4px; stroke-linejoin: round; }
+  .m-strong { font-weight: 700; }
+  .m-dim { fill: var(--muted); font-size: 18px; }
+  .map-cap { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; justify-content: space-between; padding: 10px 14px; border-top: 1px solid var(--line); font-size: 13px; }
+  .key { display: inline-flex; align-items: center; gap: 6px; color: var(--muted); }
+  .key i { display: inline-block; width: 18px; height: 4px; border-radius: 2px; background: var(--c); }
+
   footer { font-size: 12.5px; color: var(--muted); }
   @media (max-width: 420px) {
     h1 { font-size: 26px; }
@@ -144,6 +179,55 @@
       <span class="fact">Day 1 徒步约 <span class="mono">7 km</span></span>
       <span class="fact">Day 2 驾车约 <span class="mono">8.5 h</span>（含回程）</span>
     </div>
+    <figure class="mapbox" style="margin:0">
+<svg class="map" viewBox="0 0 640 406" role="img" aria-label="湖区两日路线示意图">
+<rect width="640" height="406" class="m-land"/>
+<polygon points="137.1,-85.2 91.4,-10.5 76.2,45.9 64.8,112.7 45.7,163.8 38.1,190.0 99.0,242.4 144.8,308.0 190.5,360.4 205.7,406.2 0,406 0,0" class="m-sea"/>
+<text x="22" y="266" class="m-sealbl">Irish Sea</text>
+<polyline points="550.1,271.3 566.1,308.0 574.5,353.8 560.0,412.8" class="m-lake" stroke-width="9"/>
+<polyline points="468.6,91.7 478.5,150.7" class="m-lake" stroke-width="6"/>
+<polyline points="409.1,51.1 398.5,100.9" class="m-lake" stroke-width="12"/>
+<polyline points="350.5,-32.8 369.5,6.6" class="m-lake" stroke-width="9"/>
+<polyline points="302.5,121.9 329.9,148.1" class="m-lake" stroke-width="7"/>
+<polyline points="272.8,78.6 295.6,127.1" class="m-lake" stroke-width="8"/>
+<polyline points="242.3,62.9 256.8,74.7" class="m-lake" stroke-width="5"/>
+<polyline points="240.0,137.6 201.9,155.9" class="m-lake" stroke-width="7"/>
+<polyline points="318.5,235.9 278.1,279.1" class="m-lake" stroke-width="7"/>
+<polyline points="464.8,321.1 445.7,406.2" class="m-lake" stroke-width="7"/>
+<polyline points="563.8,117.9 617.1,78.6 640.0,45.9" class="m-lake" stroke-width="8"/>
+<polyline points="499.8,239.8 505.9,247.7" class="m-lake" stroke-width="6"/>
+<polyline points="515.0,245.1 525.7,247.7" class="m-lake" stroke-width="4"/>
+<rect x="487.4" y="222.7" width="69.0" height="56.5" rx="6" class="m-d1box"/>
+<text x="485.4" y="301.2" class="m-d1lbl">Day 1 徒步</text>
+<polyline points="547.0,271.3 529.5,246.4 502.9,229.3 495.2,190.0 482.3,137.6 464.8,85.2 416.0,44.6 413.0,78.6 403.8,111.4 400.0,144.1 388.6,157.3 367.2,162.5 339.0,150.7 307.0,123.2 289.5,98.3 251.4,68.1 190.5,78.6 129.5,150.7 114.3,200.5 144.8,255.5 190.5,281.7 251.4,275.2 281.9,268.6 323.8,229.3" class="m-route"/>
+<polyline points="190.5,281.7 198.1,334.2 221.0,386.6" class="m-route m-home"/>
+<text x="231.0" y="382.6" class="m-lbl m-dim">回 Bristol ↓</text>
+<circle cx="547.0" cy="271.3" r="6" class="m-home"/>
+<text x="559.0" y="297.3" text-anchor="start" class="m-lbl m-strong">Ambleside · 住</text>
+<circle cx="416.0" cy="44.6" r="6" class="m-stop"/>
+<text x="404.0" y="34.6" text-anchor="end" class="m-lbl m-strong">Keswick</text>
+<circle cx="443.4" cy="41.9" r="4" class="m-poi"/>
+<text x="451.4" y="63.9" text-anchor="start" class="m-lbl m-dim">Castlerigg</text>
+<circle cx="367.2" cy="162.5" r="4" class="m-poi"/>
+<text x="373.2" y="186.5" text-anchor="start" class="m-lbl m-dim">Honister Pass</text>
+<circle cx="307.0" cy="123.2" r="6" class="m-stop"/>
+<text x="295.0" y="113.2" text-anchor="end" class="m-lbl m-strong">Buttermere</text>
+<circle cx="318.5" cy="235.9" r="6" class="m-stop"/>
+<text x="330.5" y="227.9" text-anchor="start" class="m-lbl m-strong">Wast Water</text>
+<circle cx="114.3" cy="200.5" r="3" class="m-town"/>
+<text x="124.3" y="207.5" text-anchor="start" class="m-lbl m-dim">Egremont</text>
+<circle cx="190.5" cy="281.7" r="3" class="m-town"/>
+<text x="180.5" y="273.7" text-anchor="end" class="m-lbl m-dim">Gosforth</text>
+<circle cx="575.2" cy="353.8" r="3" class="m-town"/>
+<text x="585.2" y="347.8" text-anchor="start" class="m-lbl m-dim">Bowness</text>
+<text x="626" y="394" text-anchor="end" class="m-lbl m-dim">示意图 · 非比例</text>
+</svg>
+      <figcaption class="map-cap">
+        <span class="key d2"><i></i>Day 2 自驾</span>
+        <span class="key d1"><i></i>Day 1 徒步区域</span>
+        <a class="btn d2" href="https://www.google.com/maps/dir/?api=1&origin=Ambleside&destination=Bristol&waypoints=Keswick%7CButtermere%7CWast+Water&travelmode=driving" target="_blank" rel="noopener"><svg><use href="#nav"/></svg>在 Google 地图打开</a>
+      </figcaption>
+    </figure>
   </header>
 
   <nav class="tabs" aria-label="跳转">
@@ -158,6 +242,32 @@
       <span class="day-tag">DAY 1 · 徒步 + 小镇</span>
       <h2>Rydal Cave 到 Grasmere 姜饼屋</h2>
     </div>
+
+    <figure class="mapbox" style="margin:0">
+<svg class="map" viewBox="0 0 640 440" role="img" aria-label="Day 1 徒步路线示意图">
+<rect width="640" height="440" class="m-land"/>
+<polyline points="373.3,199.4 426.7,214.0 469.3,275.2 512.0,360.8 554.7,440.3" class="m-river"/>
+<polygon points="124.4,85.6 170.7,116.2 199.1,177.3 184.9,226.3 135.1,236.1 92.4,195.7 91.0,128.4" class="m-lakefill"/>
+<polygon points="248.9,156.6 327.1,171.2 373.3,199.4 352.0,211.6 284.4,194.5 240.4,179.8" class="m-lakefill"/>
+<text x="138.7" y="165.1" text-anchor="middle" class="m-lakelbl">Grasmere</text>
+<text x="305.8" y="142.9" text-anchor="middle" class="m-lakelbl">Rydal Water</text>
+<polyline points="124.4,55.0 213.3,97.8 298.7,152.9 391.1,174.9 490.7,275.2 565.3,366.9" class="m-bus"/>
+<text x="492.0" y="254.8" class="m-lbl m-dim">555 巴士回程</text>
+<polyline points="565.3,366.9 512.0,360.8 465.8,275.2 416.0,195.7" class="m-walk m-dash"/>
+<polyline points="416.0,195.7 348.4,207.9 273.8,236.1 213.3,240.9 156.4,228.7 112.4,223.8 81.8,152.9 99.6,89.3 124.4,55.0" class="m-walk"/>
+<circle cx="565.3" cy="366.9" r="6" class="m-home m-d1"/>
+<text x="555.3" y="352.9" text-anchor="end" class="m-lbl m-strong">Ambleside · 住</text>
+<circle cx="416.0" cy="195.7" r="4" class="m-poi m-d1"/>
+<text x="428.0" y="203.7" text-anchor="start" class="m-lbl m-dim">Pelter Bridge</text>
+<circle cx="273.8" cy="236.1" r="6" class="m-stop m-d1"/>
+<text x="273.8" y="266.1" text-anchor="middle" class="m-lbl m-strong">Rydal Cave</text>
+<circle cx="156.4" cy="228.7" r="4" class="m-poi m-d1"/>
+<text x="166.4" y="258.7" text-anchor="middle" class="m-lbl m-dim">Loughrigg Terrace</text>
+<circle cx="124.4" cy="55.0" r="6" class="m-stop m-d1"/>
+<text x="136.4" y="45.0" text-anchor="start" class="m-lbl m-strong">姜饼屋 · Grasmere</text>
+<text x="626" y="426" text-anchor="end" class="m-lbl m-dim">实线 徒步 · 虚线 可走可坐车 · 点线 巴士</text>
+</svg>
+    </figure>
 
     <div class="route-card">
       <p class="route-line"><b>Ambleside</b> → Pelter Bridge (Rydal) → <b>Rydal Cave</b> → Loughrigg Terrace → Grasmere 湖边 → <b>Grasmere 姜饼屋</b> → 555 巴士回 Ambleside</p>
